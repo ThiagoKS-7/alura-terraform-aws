@@ -33,3 +33,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 iac-alura.pem
+ansible-start_bkp.sh
+hosts_bkp.yml
