@@ -12,9 +12,9 @@ terraform plan
 terraform apply
 ```
 
-edite a permissão de ansible-start.sh no ssh:
+edite a permissão dos arquivos .sh:
 ```bash
-sudo chmod u=rwx,g=rx,o=rx ./ansible-start.sh
+sudo chmod u=rwx,g=rx,o=rx ./*.sh
 ```
 
  
