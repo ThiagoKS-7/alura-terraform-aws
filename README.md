@@ -6,7 +6,7 @@ terraform init
 
 edite a permissão dos arquivos .sh:
 ```bash
-sudo chmod u=rwx,g=rx,o=rx ./*.sh
+sudo chmod u=rwx,g=rx,o=rx ./scripts/*.sh
 ```
 
 ### Inicie a planejamento e construção da instância 
