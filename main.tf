@@ -8,17 +8,22 @@ terraform {
     required_version = ">= 0.14.9"
 }
 
+
 provider "aws" {
-  profile = "default"
-  region = "sa-east-1"
+  profile  =   var.provider_info["profile"]
+  region   =   var.provider_info["region"]
 }
 
-resource "aws_security_group" "iac_alura" {}
+resource "aws_security_group" "iac_alura" {
+    tags = {
+        Name = var.sg_name
+    }
+}
 
 resource "aws_instance" "app_server" {
-    ami =           "ami-0af6e9042ea5a4e3e"
-    instance_type=  "t2.micro"
-    key_name = "iac-alura"
+    ami             =     var.instance_info["ami"]
+    instance_type   =     var.instance_info["type"]
+    key_name        =     var.instance_info["key"]
     # user_data = <<-EOF
     #                #!/bin/bash 
     #                cd
@@ -26,6 +31,6 @@ resource "aws_instance" "app_server" {
     #                nohup busybox httpd -f -p 8080 &
     #                EOF
     tags = {
-        Name = "terraform_ansible_python"
+        Name = var.instance_info["name"]
     }
 }
