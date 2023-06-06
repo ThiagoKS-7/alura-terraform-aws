@@ -12,7 +12,9 @@ terraform plan
 terraform apply
 ```
 
-no ssh
+edite a permissão de ansible-start.sh no ssh:
 ```bash
-nohup busybox httpd -f -p 8080 &
+sudo chmod u=rwx,g=rx,o=rx ./ansible-start.sh
 ```
+
+ 
