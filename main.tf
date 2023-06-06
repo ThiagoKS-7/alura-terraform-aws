@@ -13,6 +13,8 @@ provider "aws" {
   region = "sa-east-1"
 }
 
+resource "aws_security_group" "iac_alura" {}
+
 resource "aws_instance" "app_server" {
     ami =           "ami-0af6e9042ea5a4e3e"
     instance_type=  "t2.micro"
@@ -24,6 +26,6 @@ resource "aws_instance" "app_server" {
     #                nohup busybox httpd -f -p 8080 &
     #                EOF
     tags = {
-        Name = "ec2_terraform_AWS"
+        Name = "terraform_ansible_python"
     }
 }
