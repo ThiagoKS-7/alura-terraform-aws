@@ -1,7 +1,7 @@
 #!/bin/bash
 
-USERNAME=ubuntu
-PRIVATE_KEY=iac-alura.pem
+USERNAME=your_ec2_instance_username
+PRIVATE_KEY=your_private_key_name
 PLAYBOOK=playbook.yml
 HOSTS=hosts.yml
 
