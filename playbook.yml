@@ -3,3 +3,7 @@
     - name: Instalando o python3, virtualenv
       apt:
         pkg:
+        - python3
+        - vritualenv
+        update_cache: yes
+      become: yes

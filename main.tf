@@ -15,8 +15,22 @@ provider "aws" {
 }
 
 resource "aws_security_group" "iac_alura" {
+    name            =     var.sg_name
+    description     =     "Allow all traffic"
+    ingress {
+        from_port       = 0
+        to_port         = 0
+        protocol        = "-1"
+        cidr_blocks     = ["0.0.0.0/0"]
+    }
+    egress {
+        from_port       = 0
+        to_port         = 0
+        protocol        = "-1"
+        cidr_blocks     = ["0.0.0.0/0"]
+    }
     tags = {
-        Name = var.sg_name
+        Name = "terraform-ansible-alura-iac"
     }
 }
 
@@ -24,6 +38,7 @@ resource "aws_instance" "app_server" {
     ami             =     var.instance_info["ami"]
     instance_type   =     var.instance_info["type"]
     key_name        =     var.instance_info["key"]
+    security_groups =     [aws_security_group.iac_alura.name]
     # user_data = <<-EOF
     #                #!/bin/bash 
     #                cd

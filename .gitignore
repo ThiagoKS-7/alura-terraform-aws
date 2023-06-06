@@ -35,4 +35,5 @@ terraform.rc
 iac-alura.pem
 ansible-start_bkp.sh
 hosts.yml
-scripts/conf.sh
+conf.sh
+config.terraform
