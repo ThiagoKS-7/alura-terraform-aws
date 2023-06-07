@@ -7,20 +7,31 @@ do
 	esac
 done
 
-cd $pwd/infra
+rt=/home/thiago/devops/alura-terraform-aws
+
+cd $rt/infra
 terraform init
+
+# cd $rt/infra/modules/ec2
+# terraform init
+
+# cd $rt/infra/modules/key_pairs
+# terraform init
+
+# cd $rt/infra/modules/security_groups
+# terraform init
 
 if [ ${#env} -gt 0 ];
 then
     if [ ${#env} == "dev" ];
     then
-        cd $pwd/env/Dev
+        cd $rt/env/Dev
         terraform init
     fi
 
     if [ ${#env} == "prod" ];
     then
-        cd $pwd/env/Prod
+        cd $rt/env/Prod
         terraform init
     fi
 else

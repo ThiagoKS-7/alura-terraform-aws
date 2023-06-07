@@ -12,3 +12,7 @@ module "aws_dev" {
         "ami"   =    "ami-0af6e9042ea5a4e3e"
     }
 }
+
+output "dev_ip" {
+    value = module.aws_dev.public_ip
+}
