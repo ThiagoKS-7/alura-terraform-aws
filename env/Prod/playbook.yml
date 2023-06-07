@@ -1,0 +1,27 @@
+- hosts: terraform-ansible
+  tasks:
+    - name: Instalando o python3, virtualenv
+      apt:
+        pkg:
+        - python3
+        - virtualenv
+        update_cache: yes
+      become: yes
+    - name: Clonando repositorio
+      ansible.builtin.git:
+        repo: https://github.com/alura-cursos/clientes-leo-api.git
+        dest: /home/ubuntu/tcc
+        version: master
+        force: yes
+    - name: Instalando dependencias com pip (requirements)
+      pip:
+        virtualenv: /home/ubuntu/tcc/venv
+        requirements: /home/ubuntu/tcc/requirements.txt
+    - name: Alterando allowed_hosts do settings.py
+      lineinfile:
+        path: /home/ubuntu/tcc/setup/settings.py
+        regex: 'ALLOWED_HOSTS' 
+        line: 'ALLOWED_HOSTS=["*"]'
+        backrefs: yes
+    - name: Criando arquivo de start e clear do servidor
+      shell: "cd /home/ubuntu/tcc; echo python3 manage.py runserver 0.0.0.0:8000 >> start.sh; echo rm -rf db.sqlite3 start.sh manage.py setup remove.sh >> clear.sh;sudo chmod u=rwx,g=rx,o=rx ./*.sh"
