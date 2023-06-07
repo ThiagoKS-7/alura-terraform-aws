@@ -23,5 +23,9 @@
         regex: 'ALLOWED_HOSTS' 
         line: 'ALLOWED_HOSTS=["*"]'
         backrefs: yes
+    - name: Configurando banco de dados
+      shell: ". /home/ubuntu/tcc/venv/bin/activate; python3 /home/ubuntu/tcc/manage.py migrate"
+    - name: Carregando dados iniciais
+      shell: ". /home/ubuntu/tcc/venv/bin/activate; python3 /home/ubuntu/tcc/manage.py loaddata clientes.json"
     - name: Criando arquivo de start e clear do servidor
-      shell: "cd /home/ubuntu/tcc; echo python3 manage.py runserver 0.0.0.0:8000 >> start.sh; echo rm -rf db.sqlite3 start.sh manage.py setup remove.sh >> clear.sh;sudo chmod u=rwx,g=rx,o=rx ./*.sh"
+      shell: "cd /home/ubuntu/tcc; echo nohup python3 manage.py runserver 0.0.0.0:8000 >> start.sh; echo rm -rf db.sqlite3 start.sh manage.py setup clear.sh clientes/ requirements.txt  >> clear.sh;sudo chmod u=rwx,g=rx,o=rx ./*.sh"
