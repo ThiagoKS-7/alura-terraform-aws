@@ -49,3 +49,8 @@ resource "aws_instance" "app_server" {
         Name = var.instance_info["name"]
     }
 }
+
+resource "aws_key_pair" "chaveSSH" {
+    key_name = var.instance_info["key"]
+    public_key = file("${var.instance_info["key"]}.pub")
+}

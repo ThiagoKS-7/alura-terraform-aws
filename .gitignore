@@ -37,3 +37,7 @@ ansible-start_bkp.sh
 hosts.yml
 conf.sh
 config.terraform
+iac-dev
+iac-dev.pub
+iac-prod
+iac-prod.pub
