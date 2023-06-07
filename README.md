@@ -8,8 +8,8 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/ThiagoKS-7/alura-terraform-aws/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/ThiagoKS-7/alura-terraform-aws/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/ThiagoKS-7/alura-terraform-aws.svg)](https://github.com/ThiagoKS-7/alura-terraform-aws/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ThiagoKS-7/alura-terraform-aws.svg)](https://github.com/ThiagoKS-7/alura-terraform-aws/pulls)
 [![License](https://img.shields.io/badge/license-GPL-3.0-blue.svg)](/LICENSE)
 
 </div>
